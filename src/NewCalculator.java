@@ -33,10 +33,12 @@ public class NewCalculator {
                 result = firstNumber / secondNumber;
             }
         }
+            default -> System.out.println(operator + "invalid operator");
 
 
         }
 
+        System.out.println(result);
     }
 
 
