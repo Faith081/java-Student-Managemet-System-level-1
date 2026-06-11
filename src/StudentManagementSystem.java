@@ -1,11 +1,11 @@
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 class  Students{
 
     private String name;
     private int age;
-    private String studentId;
+    private final String studentId;
 
 
     public Students(String name, int age, String studentId){
@@ -52,7 +52,7 @@ class  Students{
 
 class StudentManagementSystem{
 
-    private ArrayList<Students> students = new ArrayList<>();
+    private final ArrayList<Students> students = new ArrayList<>();
 
 
 
@@ -62,8 +62,8 @@ class StudentManagementSystem{
         if(students.isEmpty()){
             newId = "St001";
         }else{
-            Students lastStudent = students.get(students.size() -1);
-            String lastId = lastStudent.getStudentId();
+            Students getLast = students.get(students.size() -1);
+            String lastId = getLast.getStudentId();
 
             int num = Integer.parseInt(lastId.substring(3));
 
@@ -77,7 +77,7 @@ class StudentManagementSystem{
         Students s = new Students(name, age, newId);
         students.add(s);
 
-        System.out.println("Student registered sucessfully " + s.getName() + " with ID: " + newId);
+        System.out.println("Student registered successfully " + s.getName() + " with ID: " + newId);
 
     }
 
