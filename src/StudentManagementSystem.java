@@ -15,6 +15,7 @@ class Student {
     }
 
 
+      // the getters
 
     public String getName(){
         return  name;
@@ -28,6 +29,8 @@ class Student {
        return studentId;
     }
 
+
+    // the setters
 
     public void displayInfo(){
         System.out.println("Id: " + studentId + " name: " + name + " age: " + age);
@@ -44,11 +47,10 @@ class Student {
     }
 
 
-
-
         }
 
 
+        // inheritance = the extends method
 
 class ComputerScienceStudent extends Student{
 
@@ -60,6 +62,8 @@ class ComputerScienceStudent extends Student{
                this.programmingLanguage = programmingLanguage;
           }
 
+
+          // the override method
 
       @Override
     public void displayInfo(){
@@ -75,13 +79,7 @@ class ComputerScienceStudent extends Student{
     }
 
 
-
-
 }
-
-
-
-
 
 
 
@@ -115,7 +113,6 @@ class StudentManagementSystem{
         System.out.println("Student registered successfully " + s.getName() + " with ID: " + newId);
 
     }
-
 
 
 
