@@ -54,8 +54,8 @@ class Student {
 
 class ComputerScienceStudent extends Student{
 
-          private String programmingLanguage;
-          private static int counter = 1;
+          private final String programmingLanguage;
+          private static final int counter = 1;
 
           public ComputerScienceStudent(String name, int age, String programmingLanguage){
                super(name, age, "CSC" +counter);
@@ -88,6 +88,7 @@ class StudentManagementSystem{
     private final ArrayList<Student> students = new ArrayList<>();
 
 
+    //register in new student and add it to the arrray list
 
     public void registerStudents(String name, int age){
         String newId;
@@ -115,6 +116,7 @@ class StudentManagementSystem{
     }
 
 
+    // update the student information in the arraylist
 
     public void updateStudent(String studentId, String newName, int newAge){
         for(Student s : students){
@@ -131,6 +133,9 @@ class StudentManagementSystem{
 
     }
 
+
+    //  view the students stored in the arraylist
+
      public void viewStudents(){
         for(Student s : students){
             s.displayInfo();
@@ -138,6 +143,8 @@ class StudentManagementSystem{
 
      }
 
+
+     // delete the student from the student arraylist
 
      public void deleteStudent(String studentId){
          for(Student s : students){

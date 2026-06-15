@@ -8,6 +8,9 @@ public class StudentManagementApplication {
 
 
 
+      sms.registerStudents("jane", 29);
+
+
       css.displayInfo();
 
     }
