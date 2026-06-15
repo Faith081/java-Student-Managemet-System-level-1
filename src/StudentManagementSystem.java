@@ -1,20 +1,21 @@
 import java.util.ArrayList;
 
 
-class  Students{
+class Student {
 
     private String name;
     private int age;
     private final String studentId;
 
 
-    public Students(String name, int age, String studentId){
+    public Student(String name, int age, String studentId){
         this.name = name;
         this.age = age;
         this.studentId = studentId;
     }
 
 
+      // the getters
 
     public String getName(){
         return  name;
@@ -28,6 +29,8 @@ class  Students{
        return studentId;
     }
 
+
+    // the setters
 
     public void displayInfo(){
         System.out.println("Id: " + studentId + " name: " + name + " age: " + age);
@@ -44,17 +47,48 @@ class  Students{
     }
 
 
-
-
         }
+
+
+        // inheritance = the extends method
+
+class ComputerScienceStudent extends Student{
+
+          private final String programmingLanguage;
+          private static final int counter = 1;
+
+          public ComputerScienceStudent(String name, int age, String programmingLanguage){
+               super(name, age, "CSC" +counter);
+               this.programmingLanguage = programmingLanguage;
+          }
+
+
+          // the override method
+
+      @Override
+    public void displayInfo(){
+        super.displayInfo();
+          System.out.println("Programming language : " + programmingLanguage);
+    }
+
+
+
+    @Override
+    public String getStudentId(){
+        return "CSC" + super.getStudentId();
+    }
+
+
+}
 
 
 
 class StudentManagementSystem{
 
-    private final ArrayList<Students> students = new ArrayList<>();
+    private final ArrayList<Student> students = new ArrayList<>();
 
 
+    //register in new student and add it to the arrray list
 
     public void registerStudents(String name, int age){
         String newId;
@@ -62,7 +96,7 @@ class StudentManagementSystem{
         if(students.isEmpty()){
             newId = "St001";
         }else{
-            Students getLast = students.get(students.size() -1);
+            Student getLast = students.get(students.size() -1);
             String lastId = getLast.getStudentId();
 
             int num = Integer.parseInt(lastId.substring(3));
@@ -74,7 +108,7 @@ class StudentManagementSystem{
         }
 
 
-        Students s = new Students(name, age, newId);
+        Student s = new Student(name, age, newId);
         students.add(s);
 
         System.out.println("Student registered successfully " + s.getName() + " with ID: " + newId);
@@ -82,10 +116,10 @@ class StudentManagementSystem{
     }
 
 
-
+    // update the student information in the arraylist
 
     public void updateStudent(String studentId, String newName, int newAge){
-        for(Students s : students){
+        for(Student s : students){
             if(s.getStudentId().equals(studentId)){
              s.setName(newName);
              s.setAge(newAge);
@@ -99,16 +133,21 @@ class StudentManagementSystem{
 
     }
 
+
+    //  view the students stored in the arraylist
+
      public void viewStudents(){
-        for(Students s : students){
+        for(Student s : students){
             s.displayInfo();
         }
 
      }
 
 
+     // delete the student from the student arraylist
+
      public void deleteStudent(String studentId){
-         for(Students s : students){
+         for(Student s : students){
              if(s.getStudentId().equals(studentId)){
                  students.remove(s);
                  System.out.println("Students deleted successfully");
@@ -120,6 +159,6 @@ class StudentManagementSystem{
      }
 
 
-
-
 }
+
+
